@@ -26,7 +26,7 @@
       host = (getString 0) + "-" + (getString 2);
       dc = getString 1;
       bin = ''
-        bin=$(nix build .#${dc}.${host}.system --no-link --print-out-paths)/sw/bin
+        bin=$(nix build .#${dc}.${host}.system.build.${getString 0} --no-link --print-out-paths)/sw/bin
         export PATH=$bin:$PATH
       '';
     in [
