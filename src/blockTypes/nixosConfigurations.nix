@@ -44,9 +44,6 @@
         bin=$(nix build .#${dc}.${host}.config.system.build.${getString 0} --no-link --print-out-paths)/sw/bin
         export PATH=$bin:$PATH
       '';
-      args = {
-        targetDrv = target.drvPath;
-      };
     in (
       l.attrsets.mapAttrsToList
       (
