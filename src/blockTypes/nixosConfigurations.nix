@@ -49,7 +49,6 @@
       (
         name: description: (mkCommand currentSystem {
           inherit name description;
-          inherit (args) targetDrv;
           command =
             bin
             + l.optionalString (l.elem name [
