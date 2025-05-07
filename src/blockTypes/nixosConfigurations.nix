@@ -40,7 +40,7 @@
       getString = o: (l.elemAt (l.splitString ["/"] fragmentRelPath) o);
       host = (getString 0) + "-" + (getString 2);
       dc = getString 1;
-      bin = ''
+      bin = builtins.trace "bin value: ${dc}.${host}.config.system.build.${getString 0}" ''
         bin=$(nix build .#${dc}.${host}.config.system.build.${getString 0} --no-link --print-out-paths)/sw/bin
         export PATH=$bin:$PATH
       '';
